@@ -68,8 +68,8 @@ signal clk_out                      				:   std_logic;
         port(
         Clk                         : in std_logic;
          Reset_n                    : in std_logic;
-         a,b                        : in std_logic_vector(7 downto 0); -- src1, src2
-         alu_control                : in std_logic_vector(2 downto 0); -- function select
+         a,b                        : in std_logic_vector(7 downto 0); 
+         alu_control                : in std_logic_vector(2 downto 0); 
          alu_result                 : out std_logic_vector(7 downto 0) ; -- ALU Output Result
          zero                       : out std_logic ;-- Zero Flag
          EO                         : in std_logic
@@ -99,9 +99,7 @@ end component;
               reset_nt2 <= reset_nt1;
            end if;
         end process;
-     
-     -- When Man_clk_n is '1' then IN_KEY_n will be used as Clk_out instead of Clk_50_in
-     -- When you simulate, change Man_clk_n to '0' to avoid long simulations
+          
        Man_clk_n <= '1';
        
         
