@@ -3,34 +3,31 @@ use IEEE.STD_LOGIC_1164.ALL;
 USE ieee.numeric_std.ALL;
 entity CPU is
     port(
-        Clk,rst_n                   :   in std_logic;
-        Key                         :   in std_logic_vector(0 downto 0);
-		  
-		  HEX_IR_1						: 	out std_logic_vector (6 downto 0);
-		  HEX_IR_2						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_3						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_4						:  out std_logic_vector (6 downto 0);
-        
-		  
-        HEX0                        :   out std_logic_vector(6 DOWNTO 0);
-        HEX1                        :   out std_logic_vector(6 DOWNTO 0)
+	Clk,rst_n                   				:in std_logic;
+	Key                         				:in std_logic_vector(0 downto 0);
+	HEX_IR_1						:out std_logic_vector (6 downto 0);
+	HEX_IR_2						:out std_logic_vector (6 downto 0);
+	HEX_IR_3						:out std_logic_vector (6 downto 0);
+	HEX_IR_4						:out std_logic_vector (6 downto 0);
+	HEX0                        				:out std_logic_vector(6 DOWNTO 0);
+	HEX1                        				:out std_logic_vector(6 DOWNTO 0)
     );
 end entity CPU;
 
 architecture rtl of CPU is
 --signals-----
-signal bus_en_n, EO, zero,RO        :   std_logic;
-signal Addr_bus                     :   std_logic_vector(3 DOWNTO 0);
-signal PC                           :   std_logic_vector(3 DOWNTO 0);
-signal data_bus_in                  :   std_logic_vector(7 DOWNTO 0);
-signal A_register_s                 :   std_logic_vector(7  DOWNTO 0);
-signal B_register_s                 :   std_logic_vector(7  DOWNTO 0);
-signal ALU_opcode_s                 :   std_logic_vector(2 downto 0);
-signal ALU_result_s                 :   std_logic_vector(7 downto 0);
-signal q_out_s                      :   std_logic_vector(7 downto 0);
-signal reset_nt1,reset_nt2          :   std_logic; 
-signal Man_clk_n                    :   std_logic;
-signal clk_out                      :   std_logic;
+signal bus_en_n, EO, zero,RO        				:   std_logic;
+signal Addr_bus                     				:   std_logic_vector(3 DOWNTO 0);
+signal PC                           				:   std_logic_vector(3 DOWNTO 0);
+signal data_bus_in                  				:   std_logic_vector(7 DOWNTO 0);
+signal A_register_s                 				:   std_logic_vector(7  DOWNTO 0);
+signal B_register_s                 				:   std_logic_vector(7  DOWNTO 0);
+signal ALU_opcode_s                 				:   std_logic_vector(2 downto 0);
+signal ALU_result_s                 				:   std_logic_vector(7 downto 0);
+signal q_out_s                      				:   std_logic_vector(7 downto 0);
+signal reset_nt1,reset_nt2          				:   std_logic; 
+signal Man_clk_n                    				:   std_logic;
+signal clk_out                      				:   std_logic;
 --------------
 ---COMPONENTS-------------------------------------------------------------------
     --RAM
@@ -57,13 +54,13 @@ signal clk_out                      :   std_logic;
         ALU_opcode                  : out std_logic_vector(2 downto 0);
         EO                          : out std_logic;
         RO                          : out std_logic;
-		  HEX_IR_1						: 	out std_logic_vector (6 downto 0);
-		  HEX_IR_2						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_3						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_4						:  out std_logic_vector (6 downto 0);
+  	HEX_IR_1		    : out std_logic_vector (6 downto 0);
+  	HEX_IR_2		    : out std_logic_vector (6 downto 0);
+  	HEX_IR_3		    : out std_logic_vector (6 downto 0);
+  	HEX_IR_4		    : out std_logic_vector (6 downto 0);
         
-        HEX_OUT_1                     : out std_logic_vector (6 downto 0);
-        HEX_OUT_2                     : out std_logic_vector (6 downto 0)
+        HEX_OUT_1                   : out std_logic_vector (6 downto 0);
+        HEX_OUT_2                   : out std_logic_vector (6 downto 0)
     );
     end component;
     ---ALU-----------------------
