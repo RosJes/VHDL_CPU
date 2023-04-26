@@ -6,22 +6,22 @@ entity T_CPU is
 end entity;
 
 architecture test of T_CPU is
-    signal Clk, rst_n   :std_logic;
-    signal HEX0      : std_logic_vector(6 DOWNTO 0);
-    signal HEX1      : std_logic_vector(6 DOWNTO 0);
-    signal HEX_IR_1						: std_logic_vector (6 downto 0);
-    signal HEX_IR_2						:	 std_logic_vector (6 downto 0);
-    signal HEX_IR_3						:	std_logic_vector (6 downto 0);
-    signal HEX_IR_4						:   std_logic_vector (6 downto 0);
-    signal key       : std_logic_vector(0 downto 0);
+    signal Clk, rst_n   			: std_logic;
+    signal HEX0      				: std_logic_vector(6 DOWNTO 0);
+    signal HEX1      				: std_logic_vector(6 DOWNTO 0);
+    signal HEX_IR_1				: std_logic_vector (6 downto 0);
+    signal HEX_IR_2				: std_logic_vector (6 downto 0);
+    signal HEX_IR_3				: std_logic_vector (6 downto 0);
+    signal HEX_IR_4				: std_logic_vector (6 downto 0);
+    signal key       				: std_logic_vector(0 downto 0);
     component CPU
     port(
         Clk,rst_n                   :   in std_logic;
         Key                         :   in std_logic_vector(0 downto 0);
-		  HEX_IR_1						: 	out std_logic_vector (6 downto 0);
-		  HEX_IR_2						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_3						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_4						:  out std_logic_vector (6 downto 0);
+	HEX_IR_1		    : 	out std_logic_vector (6 downto 0);
+	HEX_IR_2		    :	out std_logic_vector (6 downto 0);
+	HEX_IR_3		    :	out std_logic_vector (6 downto 0);
+	HEX_IR_4		    :   out std_logic_vector (6 downto 0);
         HEX0                        :   out std_logic_vector(6 DOWNTO 0);
         HEX1                        :   out std_logic_vector(6 DOWNTO 0)
     );
