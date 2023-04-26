@@ -4,23 +4,23 @@ USE ieee.numeric_std.ALL;
 --when outputing data on the bus, enable A resp B , write data and AI,BI enable
 entity control_unit is
     port(
-        Clk, rst_n                  : in std_logic;
-        bus_en_n                    : out std_logic;   
-        data_bus_in                 : in  std_logic_vector(7 downto 0); 
-        Addr_bus                    : out std_logic_vector(3 downto 0); 
-        PC                          : out std_logic_vector(3 downto 0);
-        A_register_out              : out std_logic_vector(7 downto 0);
-        B_register_out              : out std_logic_vector(7 downto 0);
-        ALU_opcode                  : out std_logic_vector(2 downto 0);
-        EO                          : out std_logic;
-        RO                          : out std_logic;
-		  HEX_IR_1						: 	out std_logic_vector (6 downto 0);
-		  HEX_IR_2						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_3						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_4						:  out std_logic_vector (6 downto 0);
+        Clk, rst_n                  	: in std_logic;
+        bus_en_n                    	: out std_logic;   
+        data_bus_in                 	: in  std_logic_vector(7 downto 0); 
+        Addr_bus                    	: out std_logic_vector(3 downto 0); 
+        PC                          	: out std_logic_vector(3 downto 0);
+        A_register_out              	: out std_logic_vector(7 downto 0);
+        B_register_out              	: out std_logic_vector(7 downto 0);
+        ALU_opcode                  	: out std_logic_vector(2 downto 0);
+        EO                         	: out std_logic;
+        RO                          	: out std_logic;
+	HEX_IR_1			: out std_logic_vector (6 downto 0);
+	HEX_IR_2			: out std_logic_vector (6 downto 0);
+	HEX_IR_3			: out std_logic_vector (6 downto 0);
+	HEX_IR_4			: out std_logic_vector (6 downto 0);
         
-        HEX_OUT_1                     : out std_logic_vector (6 downto 0);
-        HEX_OUT_2                     : out std_logic_vector (6 downto 0)
+        HEX_OUT_1                     	: out std_logic_vector (6 downto 0);
+        HEX_OUT_2                     	: out std_logic_vector (6 downto 0)
     );
 end entity;
 
@@ -54,33 +54,33 @@ component hex_decoder_module
   port(
         bus_vector_1            	:   in std_logic_vector(7 downto 0);
         bus_vector_2            	:   in std_logic_vector(7 downto 0);
-		  IR_vector					  	:   in std_logic_vector(3 downto 0);
+	IR_vector			:   in std_logic_vector(3 downto 0);
 		  
-		  HEX_IR_1						: 	out std_logic_vector (6 downto 0);
-		  HEX_IR_2						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_3						:	out std_logic_vector (6 downto 0);
-		  HEX_IR_4						:  out std_logic_vector (6 downto 0);
+	 HEX_IR_1			:   out std_logic_vector (6 downto 0);
+	 HEX_IR_2			:   out std_logic_vector (6 downto 0);
+	 HEX_IR_3			:   out std_logic_vector (6 downto 0);
+	 HEX_IR_4			:   out std_logic_vector (6 downto 0);
         
-		  HEX_OUT_1                :   out std_logic_vector (6 downto 0);
-        HEX_OUT_2                :   out std_logic_vector (6 downto 0)
+        HEX_OUT_1                       :   out std_logic_vector (6 downto 0);
+        HEX_OUT_2                       :   out std_logic_vector (6 downto 0)
     );
     end component;
 
    begin
     HEX_UNIT_INSTANCE:  hex_decoder_module  
-                    port map(
-                        bus_vector_1 => data_bus_out,
-                        bus_vector_2 => bus_output_2,
-								IR_vector	=>	IR(7 DOWNTO 4),		  
-		  
-								HEX_IR_1		=>		HEX_IR_1,		
-								HEX_IR_2	=>	HEX_IR_2	,				
-								HEX_IR_3	=> HEX_IR_3	,				
-								HEX_IR_4		=> HEX_IR_4	,			
-        
-                        HEX_OUT_1 => HEX_OUT_1,
-                        HEX_OUT_2 => HEX_OUT_2
-                    );
+    port map(
+	bus_vector_1 	=> data_bus_out,
+	bus_vector_2 	=> bus_output_2,
+	IR_vector	=> IR(7 DOWNTO 4),		  
+
+	HEX_IR_1	=>HEX_IR_1,		
+	HEX_IR_2	=>HEX_IR_2,				
+	HEX_IR_3	=> HEX_IR_3,				
+	HEX_IR_4	=> HEX_IR_4,			
+
+	HEX_OUT_1 	=> HEX_OUT_1,
+	HEX_OUT_2 	=> HEX_OUT_2
+    );
 
     PC <= std_logic_vector(PC_reg);
     bus_output_2 <=std_logic_vector("0000"& PC_reg(3 downto 0));
