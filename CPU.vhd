@@ -135,10 +135,10 @@ CONTROL_UNIT_INSTANCE: control_unit
                         ALU_opcode      	=>      ALU_opcode_s,                
                         EO              	=>      EO,   
                         RO              	=>      RO,   
-								HEX_IR_1				=> 	HEX_IR_1	,				
-								HEX_IR_2				=> 	HEX_IR_2,			
-								HEX_IR_3				=> 	HEX_IR_3,				
-								HEX_IR_4				=> 	HEX_IR_4,			
+			HEX_IR_1				=> 	HEX_IR_1	,				
+			HEX_IR_2				=> 	HEX_IR_2,			
+			HEX_IR_3				=> 	HEX_IR_3,				
+			HEX_IR_4				=> 	HEX_IR_4,			
                         HEX_OUT_1         =>      HEX0 ,  
                         HEX_OUT_2         =>      HEX1   
                 );
